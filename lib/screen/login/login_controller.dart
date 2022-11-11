@@ -23,6 +23,12 @@ class LoginController extends BaseController {
     super.dispose();
   }
 
+  @override
+  void onInit() {
+    print(storage.readToken().toString());
+    super.onInit();
+  }
+
 
 
   Future doLogin(String username, String password) async {
@@ -41,6 +47,10 @@ class LoginController extends BaseController {
       if (e.toString().contains('Username tidak ditemukan')) {
         Get.showSnackbar(
           const GetSnackBar(
+            icon: Icon(
+              Icons.error,
+              color: Colors.white,
+            ),
             message: 'Username tidak ditemukan, harap daftar terlebih dahulu',
             isDismissible: true,
             duration: Duration(seconds: 3),

@@ -12,6 +12,7 @@ class StorageCore {
   }
 
   Future<String?> readToken () async {
-    return await storage.read(key: 'token');
+    var token = await storage.read(key: 'token');
+    return token;
   }
 }
